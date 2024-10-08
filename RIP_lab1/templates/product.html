@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.title }} - Gateway mission store{% endblock %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="cart">
+        <div class="cart-box">
+            <div class="cart-image"></div>
+        </div>
+    </div>
+		<div class="product-info-box">
+            <span class="product-name">{{ product.title }} </span>
+            <span class="product-price">₽{{ product.price }}</span>
+            <span class="product-info">Параметры:{{ product.info }}
+            </span>
+        </div>
+        <div class="product-image-box">
+            <div class="product-image" data-image="{{product.id}}"></div>
+        </div>
+{% endblock %}

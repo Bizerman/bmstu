@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Gateway mission store{% endblock %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/products.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="products">
+        {% for product in data.products %}
+            <a href='{% url 'products_url' product.id %}'>
+                <div class="product">
+                    <div class="product-box">
+                        <div class="product-image" data-image="{{ product.id }}"></div>
+                    </div>
+                    <div class="product-text">
+                        <span class="product-name">{{product.title}}</span>
+                        <span class="product-price">₽{{product.price}}</span>
+                    </div>
+                </div>
+            </a>
+        {% empty %}
+            <p>Нет доступных продуктов</p>
+        {% endfor %}
+    </div>
+    <span class="store-title">STORE</span>
+    <div class="search">
+    <div class="search-box"></div>
+    <div class="search-image"></div><span class="search-text">НАЙТИ...</span><span class="search-clean-btn">×</span>
+    </div>
+    <div class="cart">
+        <div class="cart-box">
+            <div class="cart-image"></div>
+        </div>
+    </div>
+{% endblock %}
